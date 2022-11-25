@@ -9,6 +9,9 @@ import { ref } from "vue";
       <li>
         <router-link to="/todo-utility">Todo Utility</router-link>
       </li>
+      <li>
+        <router-link to="/counter">Counter</router-link>
+      </li>
     </ul>
   </nav>
   <router-view></router-view>
