@@ -1,7 +1,12 @@
 <script setup>
 import { onMounted, ref, computed } from "vue";
+import TodoListVue from "./TodoList.vue";
 
 const items = ref([]);
+const notCompleted = computed(() =>
+  items.value.filter((item) => !item.completed)
+);
+const completed = computed(() => items.value.filter((item) => item.completed));
 
 onMounted(() => {
   console.log("the component is now mounted.");
@@ -14,37 +19,23 @@ onMounted(() => {
   ];
 });
 
-const notCompleted = computed(() =>
-  items.value.filter((item) => !item.completed)
-);
-const completed = computed(() => items.value.filter((item) => item.completed));
+function handleSwitchTodo({ id, completed }) {
+  const item = items.value.find((item) => item.id === id);
+  item.completed = completed;
+}
 </script>
 
 <template>
-  <h1>Not compelted</h1>
-  <ul>
-    <li v-for="item in notCompleted" :key="item.id">
-      {{ item.text }}
-      <input type="checkbox" v-model="item.completed" />
-    </li>
-  </ul>
+  <h1>Todo Utility</h1>
+  <TodoListVue
+    title="Todo"
+    :items="notCompleted"
+    @switch-completed-todo="handleSwitchTodo"
+  />
 
-  <h1>Completed</h1>
-
-  <ul>
-    <li
-      v-for="item in completed"
-      :key="item.id"
-      :class="{ 'item-compelted': item.completed }"
-    >
-      {{ item.text }}
-      <input type="checkbox" v-model="item.completed" />
-    </li>
-  </ul>
+  <TodoListVue
+    title="Completed"
+    :items="completed"
+    @switch-completed-todo="handleSwitchTodo($event)"
+  />
 </template>
-
-<style scoped>
-.item-compelted {
-  text-decoration: line-through;
-}
-</style>
