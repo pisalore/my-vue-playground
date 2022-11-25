@@ -1,27 +1,14 @@
 <script setup>
-import { onMounted, ref, computed } from "vue";
 import TodoListVue from "./TodoList.vue";
+import { storeToRefs } from "pinia";
+import { useTodoStore } from "../stores/todo";
 
-const items = ref([]);
-const notCompleted = computed(() =>
-  items.value.filter((item) => !item.completed)
-);
-const completed = computed(() => items.value.filter((item) => item.completed));
+const store = useTodoStore();
 
-onMounted(() => {
-  console.log("the component is now mounted.");
-  items.value = [
-    { id: 1, text: "text1", completed: true },
-    { id: 2, text: "text2", completed: false },
-    { id: 3, text: "text3", completed: true },
-    { id: 4, text: "text4", completed: false },
-    { id: 5, text: "text5", completed: true },
-  ];
-});
+const { items, notCompleted, completed } = storeToRefs(store);
 
 function handleSwitchTodo({ id, completed }) {
-  const item = items.value.find((item) => item.id === id);
-  item.completed = completed;
+  store.switchTodo(id, completed);
 }
 </script>
 
