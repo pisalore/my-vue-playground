@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-
+import axios from "axios";
 export const defaultTodoState = {
   items: [
     { id: 1, text: "text1", completed: true },
@@ -23,6 +23,21 @@ export const actions = {
   switchTodo(id, completed) {
     const item = this.items.find((item) => item.id === id);
     item.completed = completed;
+  },
+  addTodo(text) {
+    this.items.push({
+      id: 10,
+      text,
+      completed: false,
+    });
+  },
+  async getTodoItems() {
+    try {
+      const { data } = await axios.get("/todos");
+      this.items = data;
+    } catch (error) {
+      this.items = [];
+    }
   },
 };
 

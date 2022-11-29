@@ -2,8 +2,6 @@
 import axios from "axios";
 import { ref, onMounted, computed } from "vue";
 
-axios.defaults.baseURL = " http://127.0.0.1:3000";
-
 const products = ref([]);
 const product = ref(null);
 const lastProductId = computed(
