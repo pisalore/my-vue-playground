@@ -27,3 +27,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Backend
+
+Install this project: [vue-tutorial-backend-server](https://github.com/dennybiasiolli/vue-tutorial-backend-server).
