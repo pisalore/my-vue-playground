@@ -10,6 +10,9 @@
       <li>
         <router-link :to="{ name: 'counter' }">Counter</router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'inputs' }">Inputs</router-link>
+      </li>
     </ul>
   </nav>
 </template>
