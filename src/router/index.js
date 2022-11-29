@@ -5,6 +5,7 @@ import HomePageVue from "@/components/HomePage.vue";
 import InputsVue from "@/components/Inputs.vue";
 import WatcherVue from "@/components/Watcher.vue";
 import ValidatorsVue from "@/components/Validators.vue";
+import AxiosVue from "@/components/Axios.vue";
 import NotFoundVue from "@/components/NotFound.vue";
 
 export const routes = [
@@ -14,6 +15,7 @@ export const routes = [
   { path: "/inputs", component: InputsVue, name: "inputs" },
   { path: "/watcher", component: WatcherVue, name: "watcher" },
   { path: "/validators", component: ValidatorsVue, name: "validators" },
+  { path: "/axios", component: AxiosVue, name: "axios" },
   { path: "/:pathMatch(.*)*", component: NotFoundVue, name: "NotFound" },
 ];
 

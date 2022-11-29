@@ -19,6 +19,9 @@
       <li>
         <router-link :to="{ name: 'validators' }">Validators</router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'axios' }">Axios</router-link>
+      </li>
     </ul>
   </nav>
 </template>
