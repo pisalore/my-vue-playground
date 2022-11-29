@@ -47,6 +47,7 @@ async function updateProductName(id, name) {
 async function deleteProduct(id) {
   try {
     await axios.delete(`/products/${id}`);
+    loadData();
   } catch (error) {}
 }
 
@@ -76,5 +77,6 @@ onMounted(() => {
     <button @click="updateProductName(lastProductId, 'old')">
       Update product
     </button>
+    <button @click="deleteProduct(lastProductId)">Delete product</button>
   </div>
 </template>
