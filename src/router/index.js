@@ -4,6 +4,7 @@ import CounterVue from "@/components/Counter.vue";
 import HomePageVue from "@/components/HomePage.vue";
 import InputsVue from "@/components/Inputs.vue";
 import WatcherVue from "@/components/Watcher.vue";
+import ValidatorsVue from "@/components/Validators.vue";
 import NotFoundVue from "@/components/NotFound.vue";
 
 export const routes = [
@@ -12,6 +13,7 @@ export const routes = [
   { path: "/counter", component: CounterVue, name: "counter" },
   { path: "/inputs", component: InputsVue, name: "inputs" },
   { path: "/watcher", component: WatcherVue, name: "watcher" },
+  { path: "/validators", component: ValidatorsVue, name: "validators" },
   { path: "/:pathMatch(.*)*", component: NotFoundVue, name: "NotFound" },
 ];
 
