@@ -13,6 +13,9 @@
       <li>
         <router-link :to="{ name: 'inputs' }">Inputs</router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'watcher' }">Watcher</router-link>
+      </li>
     </ul>
   </nav>
 </template>
